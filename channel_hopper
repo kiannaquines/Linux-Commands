@@ -1,1 +1,24 @@
+#!/bin/bash
+
+# Wireless interface name (e.g., wlan0)
+INTERFACE="wlan1"
+
+CHANNELS=(1 2 3 4 5 6 7 8 9 10 11)
+
+DURATION=10
+
+if ! iwconfig $INTERFACE > /dev/null 2>&1; then
+    echo "Interface $INTERFACE not found or not up."
+    exit 1
+fi
+
+echo "Starting channel hopping on $INTERFACE."
+
+while true; do
+    for CHANNEL in "${CHANNELS[@]}"; do
+        echo "Switching to channel $CHANNEL"
+        iwconfig $INTERFACE channel $CHANNEL
+        sleep $DURATION
+    done
+done
 
