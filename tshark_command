@@ -1,0 +1,1 @@
+sudo tshark -i <INTERFACE_NAME> -a duration:<DURATION_MS> -Y '(wlan.fc.type_subtype == 0x00 or wlan.fc.type_subtype == 0x02 or wlan.fc.subtype == 0x04) or (wlan.fc.type == 2) and radiotap.dbm_antsignal >= -65' -e frame.time -e wlan.sa -e wlan.da -e radiotap.dbm_antsignal -e wlan.fc.type -e wlan.fc.subtype -e wlan.fc.type_subtype -V -T json
