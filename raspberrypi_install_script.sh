@@ -12,7 +12,10 @@ sudo make
 echo "Running make install"
 sudo make install
 
-echo "Setting up the wlan1 into monitor mode"
+echo "Testing the wlan1 adapter in monitor mode...."
+echo "Setting up the wlan1 into monitor mode...."
+echo "Please wait....."
+
 sudo ip link set wlan1 down
 sudo iw dev wlan1 set type monitor
 sudo ip link set wlan1 up
