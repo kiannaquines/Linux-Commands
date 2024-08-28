@@ -1,0 +1,3 @@
+sudo ip link set <interface> down
+sudo iw dev <interface> set type monitor
+sudo ip link set <interface> up
