@@ -1,0 +1,1 @@
+wlan.fc.type == 0 || wlan.fc.subtype == 2 || wlan.fc.subtype == 0x04
