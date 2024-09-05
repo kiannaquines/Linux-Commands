@@ -2,3 +2,7 @@ sudo chown -R mosquitto:mosquitto /var/lib/mosquitto/
 sudo chown -R mosquitto:mosquitto /var/log/mosquitto/
 sudo chown mosquitto:mosquitto /etc/letsencrypt/live/mqtt.kiannaquines.online/*
 sudo chown mosquitto:mosquitto /etc/mosquitto/passwd
+
+sudo -u mosquitto mosquitto -c /etc/mosquitto/mosquitto.conf
+tail -f /var/log/mosquitto/mosquitto.log
+
