@@ -1,0 +1,2 @@
+sudo chown -R mosquitto:mosquitto /var/lib/mosquitto/
+sudo chown -R mosquitto:mosquitto /var/log/mosquitto/
