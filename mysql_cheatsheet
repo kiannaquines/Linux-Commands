@@ -8,3 +8,9 @@ SHOW DATABASES;
 CREATE USER '<username>'@'<host>' IDENTIFIED BY '<your_password>';
 GRANT ALL PRIVILEGES <DB_NAME>.* '<username>'.'<host>';
 FLUSH PRIVILEGES;
+
+
+## Create Table
+
+CREATE TABLE <table_name> (<field> CHAR(36) NOT NULL PRIMARY KEY, <field> VARCHAR(255) NOT NULL, <field> DATETIME NOT NULL, <field> DATETIME NOT NULL, <field> INT NOT NULL, <field> INT NOT NULL, <field> VARCHAR(255) NOT NULL, probed_ssid VARCHAR(200) DEFAULT 'Not
+Associated', <field> BOOLEAN, <field> INT NOT NULL, <field> DATETIME DEFAULT CURRENT_TIMESTAMP);
