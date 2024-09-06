@@ -17,3 +17,7 @@ Associated', <field> BOOLEAN, <field> INT NOT NULL, <field> DATETIME DEFAULT CUR
 
 ## Modify Column
 ALTER TABLE users MODIFY COLUMN profile VARCHAR(255) NOT NULL DEFAULT 'profile.png';
+
+## Add New Column
+
+ALTER TABLE users ADD profile VARCHAR(255) NOT NULL;
