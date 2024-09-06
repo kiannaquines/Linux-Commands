@@ -1,0 +1,10 @@
+## Create new database
+
+CREATE DATABASE <db_name>;
+SHOW DATABASES;
+
+## Creating new users
+
+CREATE USER '<username>'@'<host>' IDENTIFIED BY '<your_password>';
+GRANT ALL PRIVILEGES <DB_NAME>.* '<username>'.'<host>';
+FLUSH PRIVILEGES;
