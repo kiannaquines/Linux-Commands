@@ -6,3 +6,6 @@ sudo chown mosquitto:mosquitto /etc/mosquitto/passwd
 sudo -u mosquitto mosquitto -c /etc/mosquitto/mosquitto.conf
 tail -f /var/log/mosquitto/mosquitto.log
 
+
+mosquitto_sub -h mqtt.domain.tld -p 8883 -t "library/reference" -u "<username>" -P "<password>" --cafile /etc/ssl/certs/ISRG_Root_X1.pem --tls-version tlsv1.2
+
