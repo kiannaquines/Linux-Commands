@@ -2,4 +2,5 @@ source ~/.profile
 
 sudo apt update
 sudo apt install build-essential
-sudo apt install gcc-arm-none-eabi
+
+sudo apt install libpcap-dev
