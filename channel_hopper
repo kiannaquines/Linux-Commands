@@ -1,27 +1,51 @@
 #!/bin/bash
 
-INTERFACE="wlan1"
-
-CHANNELS_2_4GHZ=(1 2 3 4 5 6 7 8 9 10 11)
-CHANNELS_5GHZ=(36 40 44 48 52 56 60 64 100 104 108 112 116 120 124 128 132 136 140 144 149 153 157 161 165)
-
-CHANNELS=("${CHANNELS_2_4GHZ[@]}" "${CHANNELS_5GHZ[@]}")
+log() {
+    echo "$(date): $1" | tee -a /tmp/channel_hopper.log
+}
 
 
-DURATION=10
-
-if ! iwconfig $INTERFACE > /dev/null 2>&1; then
-    echo "Interface $INTERFACE not found or not up."
+IFACE=$(iw dev | awk '$1=="Interface"{print $2}' | head -n1)
+if [ -z "$IFACE" ]; then
+    log "Error: No wireless interface detected."
     exit 1
 fi
 
-echo "Starting channel hopping on $INTERFACE."
+DURATION=10
+CHANNELS=(1 2 3 4 5 6 7 8 9 10 11)
+
+log "Starting channel hopper on interface $IFACE"
+
+if ! ip link show $IFACE &> /dev/null; then
+    log "Error: Interface $IFACE does not exist."
+    exit 1
+fi
+
+log "Setting up $IFACE to monitor mode...."
+if ! ip link set $IFACE down; then
+    log "Error: Failed to bring $IFACE down."
+    exit 1
+fi
+
+if ! iw dev $IFACE set type monitor; then
+    log "Error: Failed to set $IFACE to monitor mode."
+    exit 1
+fi
+
+if ! ip link set $IFACE up; then
+    log "Error: Failed to bring $IFACE up."
+    exit 1
+fi
+
+log "Successfully set $IFACE to monitor mode."
 
 while true; do
     for CHANNEL in "${CHANNELS[@]}"; do
-        echo "Switching to channel $CHANNEL"
-        iwconfig $INTERFACE channel $CHANNEL
+        log "Switching to channel $CHANNEL"
+        if ! iw dev $IFACE set channel $CHANNEL; then
+            log "Warning: Failed to switch to channel $CHANNEL. Skipping."
+            continue
+        fi
         sleep $DURATION
     done
 done
-
