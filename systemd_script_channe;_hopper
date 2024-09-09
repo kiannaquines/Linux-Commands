@@ -1,0 +1,11 @@
+[Unit]
+Description=Wi-Fi Channel Hopping Script
+After=network.target
+
+[Service]
+ExecStart=<PATH_TO_EXECUTABLE>
+Restart=always
+User=kian
+
+[Install]
+WantedBy=multi-user.target
