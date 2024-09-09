@@ -1,0 +1,17 @@
+[Unit]
+Description=Wi-Fi Channel Hopping Script
+After=network.target
+
+[Service]
+ExecStart=/bin/bash /home/kian/hubcode/channel_hopper.sh
+Restart=always
+RestartSec=10
+User=root
+Group=root
+WorkingDirectory=/home/kian/hubcode/
+StandardOutput=append:/var/log/channel_hopper.log
+StandardError=append:/var/log/channel_hopper.log
+SyslogIdentifier=channel_hopper
+
+[Install]
+WantedBy=multi-user.target
