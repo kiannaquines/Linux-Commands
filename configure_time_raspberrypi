@@ -1,0 +1,34 @@
+set time using ntp
+
+sudo apt update
+sudo apt install ntp
+
+sudo nano /etc/ntpsec/ntp.conf
+
+server 0.pool.ntp.org
+server 1.pool.ntp.org
+server 2.pool.ntp.org
+server 3.pool.ntp.org
+
+
+
+sudo chown <user>:<user> /etc/ntpsec/ntp.conf
+ntpq -p
+
+sudo systemctl status ntp
+sudo systemctl restart ntp
+
+## 24 hours format
+
+sudo date -s "<DATE> <HOUR>"
+
+sudo systemctl enable ntpsec.service
+sudo systemctl start ntpsec.service
+sudo systemctl status ntpsec.service
+sudo systemctl restart ntpsec.service
+ntpq -pn
+sudo reboot
+sudo systemctl status ntpsec.service
+
+
+
