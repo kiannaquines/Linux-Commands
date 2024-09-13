@@ -1,3 +1,9 @@
+## Docker compose stop and remove containers
+docker-compose down --volumes
+
+## Docker compose one liner command
+docker-compose build && docker-compose up -d
+
 ## Show images
 docker image ls
 
