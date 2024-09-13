@@ -1,0 +1,5 @@
+## Show images
+docker image ls
+
+## Run container image
+docker run -it <REPO_NAME>
