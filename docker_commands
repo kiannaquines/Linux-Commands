@@ -11,5 +11,5 @@ docker image ls
 docker run -it <REPO_NAME>
 
 ## Delete Images
-docker rmi <id1> <id2>
+docker rmi -f <id1> <id2>
 
