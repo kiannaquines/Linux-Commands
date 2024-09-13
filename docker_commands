@@ -9,3 +9,7 @@ docker image ls
 
 ## Run container image
 docker run -it <REPO_NAME>
+
+## Delete Images
+docker rmi <id1> <id2>
+
