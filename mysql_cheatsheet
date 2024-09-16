@@ -21,3 +21,16 @@ ALTER TABLE users MODIFY COLUMN profile VARCHAR(255) NOT NULL DEFAULT 'profile.p
 ## Add New Column
 
 ALTER TABLE users ADD profile VARCHAR(255) NOT NULL;
+
+## Start Transaction
+START TRANSACTION;
+
+## Delete Data Sample Command
+DELETE FROM your_table WHERE condition;
+
+## All execution is good
+COMMIT;
+
+## if not good 
+ROLLBACK;
+
