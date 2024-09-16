@@ -13,4 +13,8 @@ NTP=<SERVER_NTP_IP>
 
 sudo systemctl restart systemd-timesyncd
 
+timedatectl status
+
+date
+
 
