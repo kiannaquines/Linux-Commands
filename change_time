@@ -11,4 +11,6 @@ sudo nano /etc/systemd/timesyncd.conf
 [Time]
 NTP=<SERVER_NTP_IP>
 
+sudo systemctl restart systemd-timesyncd
+
 
