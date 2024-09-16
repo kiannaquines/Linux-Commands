@@ -1,1 +1,14 @@
-sudo date -s '28 Aug 2024 22:42'
+sudo apt-get update
+sudo apt-get install systemd-timesyncd
+
+sudo systemctl start systemd-timesyncd
+sudo systemctl enable systemd-timesyncd
+
+sudo systemctl status systemd-timesyncd
+
+sudo nano /etc/systemd/timesyncd.conf
+
+[Time]
+NTP=<SERVER_NTP_IP>
+
+
