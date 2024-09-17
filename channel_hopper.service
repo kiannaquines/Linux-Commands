@@ -15,3 +15,25 @@ SyslogIdentifier=channel_hopper
 
 [Install]
 WantedBy=multi-user.target
+
+
+## Start script after restart
+
+[Unit]
+Description=Production MQTT Listener 
+After=network.target
+
+[Service]
+ExecStart=/home/root/hubcode/production_mqtt_listener_executable  # Replace with the actual executable
+Restart=always
+RestartSec=10
+User=root
+Group=root
+WorkingDirectory=/home/root/hubcode/
+StandardOutput=append:/var/log/production_mqtt_listener.log
+StandardError=append:/var/log/production_mqtt_listener.log
+SyslogIdentifier=production_mqtt_listener
+
+[Install]
+WantedBy=multi-user.target
+
