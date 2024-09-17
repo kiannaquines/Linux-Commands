@@ -37,3 +37,9 @@ SyslogIdentifier=production_mqtt_listener
 [Install]
 WantedBy=multi-user.target
 
+
+sudo systemctl daemon-reload
+sudo systemctl enable production_mqtt_listener.service
+sudo systemctl start production_mqtt_listener.service
+
+
