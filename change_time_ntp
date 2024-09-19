@@ -17,4 +17,8 @@ timedatectl status
 
 date
 
+## Fix interrupted installation
+
+sudo dpkg --configure
+
 
