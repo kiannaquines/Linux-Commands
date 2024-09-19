@@ -1,0 +1,11 @@
+sudo dphys-swapfile swapoff
+sudo rm /var/swap
+sudo nano /etc/dphys-swapfile
+sudo nano /etc/dphys-swapfile
+
+CONF_SWAPSIZE=1024
+
+
+sudo dphys-swapfile setup
+sudo systemctl restart dphys-swapfile
+free -h
