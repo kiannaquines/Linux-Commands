@@ -10,8 +10,7 @@ User=kian
 [Install]
 WantedBy=multi-user.target
 
-
-
+#Command here
 sudo systemctl daemon-reload
 sudo systemctl enable channel_hopper.service
 sudo systemctl start channel_hopper.service
