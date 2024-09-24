@@ -1,0 +1,4 @@
+## Remove any branch in your repo
+
+git checkout master
+git push origin --delete main
