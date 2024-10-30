@@ -1,0 +1,6 @@
+sudo usermod -a -G www-data server
+sudo usermod -a -G server www-data
+sudo chown -R server:www-data /home/server/Desktop/taralibrary_api/static
+sudo chmod -R 775 /home/server/Desktop/taralibrary_api/static
+# Test as nginx user
+sudo -u www-data test -r /home/server/Desktop/taralibrary_api/static/zone/009f6309-d9c0-4c45-b7e1-8c5e2cf7366c_6089397717827698407.jpg && echo "Readable" || echo "Not readable"
